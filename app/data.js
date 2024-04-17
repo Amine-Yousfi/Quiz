@@ -3,72 +3,80 @@ export const quiz = {
   questions: [
     {
       id: 1,
-      question: "Qu'est-ce qu'un Scrum ?",
+      question:
+        "Quels sont les principaux facteurs qui contribuent à la perte de biodiversité dans le monde ?",
       answers: [
-        "Un framework agile de gestion de projet",
-        "Un langage de programmation",
-        "Un logiciel de gestion des ressources humaines",
+        "La pollution",
+        "Le changement climatique",
+        "La déforestation",
+        "Toutes les réponses ci-dessus",
       ],
-      correctAnswer: "Un framework agile de gestion de projet",
+      correctAnswer: "Toutes les réponses ci-dessus",
     },
     {
       id: 2,
-      question: "Qu'est-ce qu'un sprint dans Scrum ?",
+      question: "Quelle est la durée de vie moyenne des ours dans la nature ?",
       answers: [
-        "Une période de temps fixe pendant laquelle l'équipe Scrum travaille pour livrer un incrément de produit",
-        "Une réunion de planification où l'équipe Scrum discute des obstacles rencontrés",
-        "Une technique de gestion de projet pour suivre les tâches et les délais",
+        "Entre 10 et 15 ans",
+        "Entre 20 et 30 ans",
+        "Plus de 50 ans",
+        "Moins de 5 ans",
       ],
-      correctAnswer:
-        "Une période de temps fixe pendant laquelle l'équipe Scrum travaille pour livrer un incrément de produit",
+      correctAnswer: "Entre 20 et 30 ans",
     },
     {
       id: 3,
-      question: "Quelles sont les quatre valeurs fondamentales de l'agilité ?",
+      question:
+        "Combien de tigres sauvages estime-t-on qu'il reste dans le monde ?",
       answers: [
-        "Planification, organisation, exécution, contrôle",
-        "Individus et interactions, processus et outils, documentation exhaustive, planification détaillée",
-        "Individus et interactions, fonctionnalités opérationnelles, collaboration avec le client, adaptation au changement",
+        "Plus de 100 000",
+        "Environ 50 000",
+        "Environ 10 000",
+        "Environ 3 900",
       ],
-      correctAnswer:
-        "Individus et interactions, fonctionnalités opérationnelles, collaboration avec le client, adaptation au changement",
+      correctAnswer: "Environ 3 900",
     },
     {
       id: 4,
-      question: "Quelles sont les trois catégories de rôles dans Scrum ?",
+      question: "Quelle est la longueur moyenne d'un tigre mâle adulte ?",
       answers: [
-        "Product Owner, Scrum Master, Développeurs",
-        "Planificateur, Exécutant, Superviseur",
-        "Gestionnaire de Projet, Analyste d'affaires, Testeur",
+        " 1 à 2 mètres",
+        "2,5 à 3,5 mètres",
+        "5 à 6 mètres",
+        "Moins de 1 mètre",
       ],
-      correctAnswer: "Product Owner, Scrum Master, Développeurs",
+      correctAnswer: "2,5 à 3,5 mètres",
     },
     {
       id: 5,
-      question: "Quel est le rôle du Product Owner dans Scrum ?",
+      question:
+        "Quelle est la principale cause du déclin de la population d'ours au cours des dernières décennies ?",
       answers: [
-        "Gérer l'équipe de développement",
-        "Déterminer les fonctionnalités à développer et leur ordre de priorité",
-        "Assurer que l'équipe suit les bonnes pratiques de codage",
+        "La surpopulation",
+        "La perte d'habitat",
+        "Le changement climatique",
+        "La maladie",
       ],
-      correctAnswer:
-        "Déterminer les fonctionnalités à développer et leur ordre de priorité",
+      correctAnswer: "La perte d'habitat",
     },
     {
       id: 6,
-      question: "Combien de temps dure un Sprint dans Scrum en général ?",
-      answers: ["1 semaine", "1 mois", "2 semaines"],
-      correctAnswer: "2 semaines",
+      question:
+        "Dans quelles régions les tigres sont-ils principalement chassés pour le commerce illégal ?",
+      answers: ["Amérique du Nord", "Europe", "Asie", "Océanie"],
+      correctAnswer: "Asie",
     },
     {
       id: 7,
-      question: "Quel est le but d'une rétrospective Scrum ?",
+      question:
+        "Quelle est la principale action que les humains peuvent entreprendre pour aider à la conservation de ces espèces ?",
       answers: [
-        "Examiner les progrès réalisés lors du Sprint",
-        "Identifier les obstacles et les moyens de les surmonter",
-        "Évaluer la performance des individus dans l'équipe",
+        "Consommer davantage de produits animaux",
+        "Réduire la consommation de papier et de bois",
+        "Acheter des produits en ivoire",
+        "Encourager le commerce de fourrure",
       ],
-      correctAnswer: "Identifier les obstacles et les moyens de les surmonter",
+      correctAnswer: "Réduire la consommation de papier et de bois ",
     },
     {
       id: 8,
@@ -79,25 +87,27 @@ export const quiz = {
     {
       id: 9,
       question:
-        "Qui est responsable de la gestion du Product Backlog et de son ordre de priorité ?",
+        "Pourquoi est-il important de préserver la biodiversité, en plus de protéger des espèces individuelles ?",
       answers: [
-        "Le Scrum Master",
-        "L'équipe de développement",
-        "Le Product Owner",
+        "Pour garantir l'équilibre des écosystèmes et des services écosystémiques.",
+        "Pour préserver les ressources naturelles dont dépendent les êtres humains.",
+        "Pour maintenir la stabilité du climat et des cycles naturels.",
+        "Toutes les réponses ci-dessus.",
       ],
-      correctAnswer: "Le Product Owner",
+      correctAnswer: "Toutes les réponses ci-dessus.",
     },
     {
       id: 10,
       question:
-        "Quelle est la différence entre un Product Backlog et un Sprint Backlog ?",
+        "Comment la sensibilisation du public peut-elle contribuer à la protection des espèces menacées ?",
       answers: [
-        "Le Product Backlog contient les fonctionnalités à développer, tandis que le Sprint Backlog contient les tâches à réaliser dans un Sprint spécifique.",
-        "Le Sprint Backlog contient les fonctionnalités à développer, tandis que le Product Backlog contient les tâches à réaliser dans un Sprint spécifique.",
-        "Ils contiennent tous deux les mêmes informations, mais sont utilisés à des moments différents du projet.",
+        " En encourageant les gens à visiter les zoos et les parcs animaliers.",
+        " En incitant les gens à prendre des selfies avec des animaux sauvages.",
+        "En éduquant les gens sur les menaces qui pèsent sur la faune et en encourageant les comportements respectueux de l'environnement.",
+        "En promouvant la chasse sportive comme moyen de contrôler les populations d'animaux sauvages.",
       ],
       correctAnswer:
-        "Le Product Backlog est une liste ordonnée de fonctionnalités à développer, tandis que le Sprint Backlog est une liste des tâches spécifiques à accomplir pendant le sprint actuel.",
+        "En éduquant les gens sur les menaces qui pèsent sur la faune et en encourageant les comportements respectueux de l'environnement.",
     },
   ],
 };

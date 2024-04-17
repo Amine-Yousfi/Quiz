@@ -133,7 +133,7 @@ const Page = () => {
                             q.userAnswer === q.correctAnswer ? "green" : "red",
                         }}
                       >
-                        <strong>Your Answer:</strong> {q.userAnswer}
+                        <strong>Votre Reponse:</strong> {q.userAnswer}
                       </span>
                     </li>
                   ))}

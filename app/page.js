@@ -15,10 +15,10 @@ export default function Home() {
           <h1
             style={{
               fontFamily: "cursive",
-              fontSize:"45px"
+              fontSize: "45px",
             }}
           >
-            Scrum Quiz App
+            Musée Quiz App
           </h1>
           <img src="Red.png" style={{ maxWidth: "10%" }} />
         </div>
@@ -29,16 +29,18 @@ export default function Home() {
             color: "brown",
           }}
         />
-        <div style={{
-          fontFamily:"cursive"
-        }}>
-          <h1>Let's learn</h1>
-          <h2>new concepts</h2>
-          <h2>about Scrum</h2>
+        <div
+          style={{
+            fontFamily: "cursive",
+          }}
+        >
+          <h1>Apprenons ensemble</h1>
+          <h2>mieux</h2>
+          <h2>À propos des animaux</h2>
         </div>
         <img
-          src="scrum.jpg"
-          alt="Scrum Image"
+          src="animal.jpg"
+          alt="Animal Image"
           style={{
             maxWidth: "60%",
             height: "auto",
@@ -53,7 +55,7 @@ export default function Home() {
               fontWeight: "bold",
             }}
           >
-            Start Quiz
+            Commencer Quiz
           </button>
         </Link>
       </div>
