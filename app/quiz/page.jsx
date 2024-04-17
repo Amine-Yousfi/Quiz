@@ -105,9 +105,6 @@ const Page = () => {
           <div className="quiz-container">
             <h3>Results</h3>
             <p>
-              Total Questions: <span>{questions.length}</span>
-            </p>
-            <p>
               Total Score: <span>{result.score}</span>
             </p>
             <p>

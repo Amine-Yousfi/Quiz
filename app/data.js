@@ -80,9 +80,15 @@ export const quiz = {
     },
     {
       id: 8,
-      question: "Quel événement Scrum se produit à la fin de chaque Sprint ?",
-      answers: ["Sprint Review", "Daily Scrum", "Sprint Retrospective"],
-      correctAnswer: "Sprint Review",
+      question:
+        "Quels sont les avantages de promouvoir le tourisme écologique dans les zones abritant des espèces menacées ?",
+      answers: [
+        "Il contribue à la surpopulation dans ces régions.",
+        " Il génère des revenus pour les communautés locales et encourage la conservation de la faune.",
+        " Il perturbe les habitats naturels et les espèces.",
+      ],
+      correctAnswer:
+        "Il génère des revenus pour les communautés locales et encourage la conservation de la faune.",
     },
     {
       id: 9,
