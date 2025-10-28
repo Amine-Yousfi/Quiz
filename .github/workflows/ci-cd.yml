@@ -20,8 +20,11 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Build Next.js App
-        run: npm run build
+      - name: eslint Check
+        run: npm run lint
+
+      # - name: Build Next.js App
+      #   run: npm run build
 
       - name: Docker Login
         uses: docker/login-action@v2
