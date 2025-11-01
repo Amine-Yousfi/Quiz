@@ -1,5 +1,8 @@
 services:
   quiz-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: quiz:latest 
     container_name: quiz-app
     ports:
