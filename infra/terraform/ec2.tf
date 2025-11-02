@@ -50,46 +50,14 @@ resource "aws_key_pair" "web" {
 resource "aws_security_group" "ssh-access" {
   name        = "ssh-access"
   description = "Allow SSH access from the Internet"
-  
-  # SSH
-  # ingress {
-  #   from_port   = 22
-  #   to_port     = 22
-  #   protocol    = "tcp"
-  #   cidr_blocks = ["0.0.0.0/0"]
-  # }
-
-  # # Argo CD
-  # ingress {
-  #   from_port   = 8080
-  #   to_port     = 8080
-  #   protocol    = "tcp"
-  #   cidr_blocks = ["0.0.0.0/0"]
-  # }
-
-  # ingress {
-  #   from_port   = 31732
-  #   to_port     = 31732
-  #   protocol    = "tcp"
-  #   cidr_blocks = ["0.0.0.0/0"]
-  # }
-
-  # # Allow all outbound traffic
-  # ingress {
-  #   from_port   = 6443
-  #   to_port     = 6443
-  #   protocol    = "tcp"
-  #   cidr_blocks = ["0.0.0.0/0"]
-  # }
 
   ingress {
     from_port   = 0
     to_port     = 0
-    protocol    = "-1" # Represents all protocols
-    cidr_blocks = ["0.0.0.0/0"] # Represents all IP addresses
+    protocol    = "-1" 
+    cidr_blocks = ["0.0.0.0/0"] 
   }
 
-   # Allow all outbound traffic
   egress {
     from_port   = 0
     to_port     = 0
