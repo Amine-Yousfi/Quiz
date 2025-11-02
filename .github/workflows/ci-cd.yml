@@ -7,6 +7,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]') && !contains(github.event.head_commit.message, 'Update image tag')"
 
     steps:
       - name: Checkout Source Code
@@ -61,4 +62,4 @@ jobs:
           git config --global user.email "$GH_EMAIL"
           git remote set-url origin https://$GH_USERNAME:$GH_PAT@github.com/${{ github.repository }}.git
           git add k8s/deployment.yaml
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update image tag to ${{ github.sha }}" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update image tag to ${{ github.sha }} [skip ci]" && git push)
