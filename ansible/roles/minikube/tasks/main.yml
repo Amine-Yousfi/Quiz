@@ -1,0 +1,75 @@
+---
+# tasks file for minikube
+
+- name: Add Kubernetes apt key
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+
+- name: Add Kubernetes repository
+  apt_repository:
+    repo: "deb https://apt.kubernetes.io/ kubernetes-xenial main"
+    state: present
+    filename: kubernetes
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Installing kubectl
+  apt:
+    name: kubectl
+    state: present
+
+- name: Installing Docker
+  apt:
+    name: docker.io
+    state: present
+
+- name: Installing conntrack
+  apt:
+    name: conntrack
+    state: present
+
+- name: Add current user to docker group
+  user:
+    name: "{{ ansible_user }}"
+    groups: docker
+    append: yes
+
+- name: Downloading minikube (binary)
+  get_url:
+    url: https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+    dest: /usr/local/bin/minikube
+    mode: '0755'
+    force: yes
+
+- name: Start Docker service
+  systemd:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Wait for Docker to be ready
+  wait_for:
+    path: /var/run/docker.sock
+    state: present
+    timeout: 30
+
+- name: Starting Minikube with none driver
+  command: minikube start --driver=none
+  become: yes
+  environment:
+    CHANGE_MINIKUBE_NONE_USER: "true"
+  args:
+    creates: /home/{{ ansible_user }}/.kube/config
+
+- name: Copy kubeconfig to user directory
+  copy:
+    src: /root/.kube/config
+    dest: /home/{{ ansible_user }}/.kube/config
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0600'
+  when: ansible_user != "root"

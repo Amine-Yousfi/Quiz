@@ -18,7 +18,7 @@ spec:
       containers:
         - name: quiz-app
           image: amineyoussficc/quiz:latest
-          imagePullPolicy: Never
+          imagePullPolicy: always
           ports:
             - containerPort: 3000
           env:
