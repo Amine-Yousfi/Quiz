@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: quiz-app
-          image: amineyousficc/quiz:b315ad30e3d11dd7c2e24f8abdeaf32f70c2b78a
+          image: amineyousficc/quiz:51a11b65da86734ca7bead58bd60687b410be08e
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
