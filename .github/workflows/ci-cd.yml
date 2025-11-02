@@ -42,3 +42,20 @@ jobs:
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/quiz:${{ github.sha }}
             ${{ secrets.DOCKER_USERNAME }}/quiz:latest
+
+
+      - name: Update Kubernetes Deployment Image Tag
+        run: |
+          sed -i "s|image: amineyousficc/quiz:.*|image: amineyousficc/quiz:${{ github.sha }}|g" k8s/deployment.yaml
+
+      - name: Commit and Push Updated Deployment File
+        env:
+          GH_USERNAME: ${{ secrets.GH_USERNAME }}
+          GH_PASSWORD: ${{ secrets.GH_PASSWORD }}
+          GH_EMAIL: ${{ secrets.GH_EMAIL }}
+        run: |
+          git config --global user.name "$GH_USERNAME"
+          git config --global user.email "$GH_EMAIL"
+          git remote set-url origin https://$GH_USERNAME:$GH_PASSWORD@github.com/${{ github.repository }}.git
+          git add k8s/deployment.yaml
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update image tag to ${{ github.sha }}" && git push)
