@@ -1,34 +1,146 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Quiz Application
 
-## Getting Started
+A modern Next.js quiz application with Docker containerization, Kubernetes deployment using kind, ArgoCD for GitOps, and comprehensive monitoring with Prometheus and Grafana.
 
-First, run the development server:
+## 🚀 Live Application
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+**Access the app:** [http://ec2-34-229-9-167.compute-1.amazonaws.com:3000/quiz](http://ec2-34-229-9-167.compute-1.amazonaws.com:3000/quiz)
+
+## 📋 Table of Contents
+
+- [Overview](#overview)
+- [Tech Stack](#tech-stack)
+- [Folder Structure](#folder-structure)
+- [Screenshots](#screenshots)
+- [CI/CD Pipeline](#cicd-pipeline)
+
+## 🎯 Overview
+
+This project demonstrates a complete DevOps pipeline for a Next.js quiz application, including:
+- Containerization with Docker
+- Kubernetes orchestration using kind
+- GitOps deployment with ArgoCD
+- Automated CI/CD with GitHub Actions
+- Infrastructure monitoring with Prometheus and Grafana
+- AWS EC2 hosting
+
+## 🛠️ Tech Stack
+
+**Frontend & Backend:**
+- Next.js 15.x
+- React 19.x
+- TypeScript
+- Node.js 20.x
+
+**DevOps & Infrastructure:**
+- Docker & Docker Compose
+- Kubernetes (kind)
+- ArgoCD
+- GitHub Actions
+- Terraform
+- Ansible
+- Shell Script
+
+**Monitoring:**
+- Prometheus
+- Grafana
+- Node Exporter
+
+**Cloud Provider:**
+- AWS EC2 (t3.small instances)
+
+## 📁 Folder Structure
+
+```
+quiz/
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml           # GitHub Actions CI/CD pipeline
+├── app/                        # Next.js app directory
+│   ├── quiz/
+│   │   └── page.tsx           # Quiz page component
+│   └── layout.tsx             # Root layout
+├── infra/                     # Infrastructure as Code
+│   ├── ansible/               # Ansible playbooks
+│   └── terraform/             # Terraform configurations
+├── k8s/                       # Kubernetes manifests
+│   ├── deployment.yaml        # Application deployment
+│   ├── service.yaml           # Service configuration
+│   └── namespace.yaml         # Namespace definition
+├── public/                    # Static assets
+├── node_modules/              # NPM dependencies
+├── .dockerignore             # Docker ignore file
+├── .eslintrc.json            # ESLint configuration
+├── .gitignore                # Git ignore file
+├── docker-compose.yaml       # Docker Compose for monitoring stack
+├── Dockerfile                # Application container definition
+├── eslint.config.mjs         # ESLint module configuration
+├── jsconfig.json             # JavaScript configuration
+├── next.config.js            # Next.js configuration
+├── package.json              # NPM package manifest
+├── package-lock.json         # NPM lock file
+└── README.md                 # Project documentation
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📸 Screenshots
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Application Running
+![Quiz Application](./screenshots/quiz-app.png)
+*The quiz application displaying questions in French with multiple choice answers*
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Kubernetes Cluster
+![Kubernetes Pods](./screenshots/kubernetes-pods.png)
+*Application pods running in the nextjs-app namespace with replica sets*
 
-## Learn More
+### ArgoCD Dashboard
+![ArgoCD](./screenshots/argocd-dashboard.png)
+*ArgoCD showing the synchronized quiz application with deployment status*
 
-To learn more about Next.js, take a look at the following resources:
+### Prometheus Targets
+![Prometheus](./screenshots/prometheus-targets.png)
+*Prometheus monitoring targets including node-exporter and prometheus itself*
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Grafana Dashboard
+![Grafana](./screenshots/grafana-dashboard.png)
+*Grafana dashboard (ID: 1860) displaying system metrics: CPU, Memory, Disk, Network*
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### AWS EC2 Instances
+![AWS EC2](./screenshots/aws-ec2-instances.png)
+*Two EC2 instances running: webserver (application) and monitor-server (monitoring stack)*
 
-## Deploy on Vercel
+## 🔄 CI/CD Pipeline
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The GitHub Actions workflow automates the entire deployment process:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Workflow Stages
+
+| Stage | Description |
+|-------|-------------|
+| **Checkout Source Code** | Clones the repository with full history for git operations |
+| **Set up Node.js** | Configures Node.js 20.x environment for building the application |
+| **Install Dependencies** | Installs NPM packages using `npm ci` for consistent builds |
+| **ESLint Check** | Runs code linting to ensure code quality and standards |
+| **Docker Login** | Authenticates with Docker Hub using stored credentials |
+| **Docker Build and Push** | Builds the Docker image and pushes with commit SHA and latest tags |
+| **Update Kubernetes Deployment** | Uses `sed` to update the image tag in k8s/deployment.yaml |
+| **Commit and Push Updated Deployment** | Commits the updated manifest back to the repository with `[skip ci]` tag |
+
+### Workflow Trigger
+
+- **Event**: Push to `main` branch
+- **Skip Conditions**: Automatically skips if commit message contains `[skip ci]` or `Update image tag` to prevent infinite loops
+
+### Pipeline Flow
+
+```
+Code Push → GitHub Actions → Install Dependencies → ESLint Check → Docker Login → Docker Build and Push → Update K8s Manifest → Commit and Push Updated Deployment → ArgoCD Sync → Deploy to Kubernetes
+```
+## 👤 Author
+
+**Amine Yousfi**
+- GitHub: [Amine Yousfi](https://github.com/Amine-Yousfi)
+- Email: yousfi.amine@esprit.tn
+
+---
+
+**Made with ❤️ by Amine Yousfi** 
