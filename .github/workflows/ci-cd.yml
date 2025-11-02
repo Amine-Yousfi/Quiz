@@ -11,6 +11,9 @@ jobs:
     steps:
       - name: Checkout Source Code
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -51,11 +54,11 @@ jobs:
       - name: Commit and Push Updated Deployment File
         env:
           GH_USERNAME: ${{ secrets.GH_USERNAME }}
-          GH_PASSWORD: ${{ secrets.GH_PASSWORD }}
+          GH_PAT: ${{ secrets.GH_PAT }}
           GH_EMAIL: ${{ secrets.GH_EMAIL }}
         run: |
           git config --global user.name "$GH_USERNAME"
           git config --global user.email "$GH_EMAIL"
-          git remote set-url origin https://$GH_USERNAME:$GH_PASSWORD@github.com/${{ github.repository }}.git
+          git remote set-url origin https://$GH_USERNAME:$GH_PAT@github.com/${{ github.repository }}.git
           git add k8s/deployment.yaml
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update image tag to ${{ github.sha }}" && git push)
