@@ -4,7 +4,7 @@ A modern Next.js quiz application with Docker containerization, Kubernetes deplo
 
 ## 🚀 Live Application
 
-**Access the app:** [http://ec2-34-229-9-167.compute-1.amazonaws.com:3000/quiz](http://ec2-34-229-9-167.compute-1.amazonaws.com:3000/quiz)
+**Access the app:** [http://ec2-13-218-96-222.compute-1.amazonaws.com:3000/quiz](http://ec2-13-218-96-222.compute-1.amazonaws.com:3000/quiz)
 
 ## 📋 Table of Contents
 
