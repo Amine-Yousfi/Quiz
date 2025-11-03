@@ -143,4 +143,4 @@ Code Push → GitHub Actions → Install Dependencies → ESLint Check → Docke
 
 ---
 
-**Made with ❤️ by Amine Yousfi** 
+**Made with ❤️ by Mohamed Amine Yousfi** 
